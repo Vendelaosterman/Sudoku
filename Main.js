@@ -6,15 +6,15 @@ function Main(){
     this.levelBoard = document.getElementsByClassName('levelBoard')[0];
 
     this.init = function(){
-        //let startBtn = document.getElementsByClassName('startBtn')[0];
+        let startBtn = document.getElementsByClassName('startBtn')[0];
         // Enable this one for full functionality
-        //startBtn.addEventListener('click', this.pickLevel);
+        startBtn.addEventListener('click', this.pickLevel);
 
         // Enable these ones for testing
-        let testStartBtn = document.getElementsByClassName('testStartBtn')[0];
+        /*let testStartBtn = document.getElementsByClassName('testStartBtn')[0];
         testStartBtn.addEventListener('click', this.testingNewGame);
         _this.mainBoard.style.visibility="hidden";
-        _this.gameBoard.style.visibility="visible";
+        _this.gameBoard.style.visibility="visible";*/
     }
 
     this.pickLevel = function(){
@@ -31,15 +31,15 @@ function Main(){
         _this.mainBoard.style.visibility="hidden";
         _this.gameBoard.style.visibility="visible";
         _this.levelBoard.style.visibility="hidden";
-        document.getElementsByTagName('body')[0].style.backgroundColor="white";*/
+        document.getElementsByTagName('body')[0].style.backgroundColor="white";
 
         let game = new Game();
-        game.generateSudokuBoard(this.id);
+        game.generateSudokuBoard(this);
     }
 
     this.testingNewGame = function(){
         let game = new Game();
-        game.generateSudokuBoard(37);
+        game.generateSudokuBoard(2);
     }
 
 }

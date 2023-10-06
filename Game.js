@@ -7,6 +7,7 @@ function Game(){
     this.solvedBoard;
     this.selectedNumber;
     this.timer; 
+    this.level;
     this.editModeOn = false;
     this.selectedBox = {
         elem: "",
@@ -21,7 +22,8 @@ function Game(){
 
     this.generateSudokuBoard = function(level){
         let board = new SudokuGenerator();
-        let startingBoard = board.newStartingBoard(level);
+        let startingBoard = board.newStartingBoard(level.id);
+        this.level = level.innerHTML;
         this.missedNumbers = startingBoard[0];
         this.unSolvedBoard = startingBoard[1];
         this.solvedBoard = startingBoard[2];
@@ -65,7 +67,7 @@ function Game(){
                 editBtn.classList.add('edit-off');
                 editText.innerHTML="OFF";
                 textColor = "black";
-                backgroundColor = "white";
+                backgroundColor = "rgba(45,124,255,1)";
 
             }else if(!_this.editModeOn){
                 _this.editModeOn = true;
@@ -84,6 +86,10 @@ function Game(){
 
         this.timer = new Timer();
         this.timer.startTimer();
+
+        let levelHudElem = document.getElementById('levelHud');
+        console.log(this.level)
+        levelHudElem.innerHTML = this.level;;
     }
 
     this.handleSelectedBox = function(selectedBoxElem, rowIndex, boxIndex){
@@ -143,6 +149,12 @@ function Game(){
     this.showResultBoard = function(){
         document.getElementsByClassName('gameBoard')[0].style.visibility = "hidden";
         document.getElementsByClassName('resultBoard')[0].style.visibility = "visible";
+
+        let timeElem = document.getElementById('time');
+        let levelElem = document.getElementById('level');
+        console.log(timeElem)
+        timeElem.innerHTML = this.timer.gameDuration;
+        levelElem.innerHTML = this.level;
     }
 
     // A method that checks if all occurrences of a specific number are on the board

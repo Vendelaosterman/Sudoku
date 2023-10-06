@@ -20,16 +20,25 @@
     <section class="levelBoard">
         <div class="level-wr">
             <p id="37">Easy</p>
-            <p id="40">Medium</p>
+            <p id="2">Medium</p>
             <p id="45">Hard</p>
             <p di="52">Expert</p>
             <p id="58">Evil</p>
         </div>
     </section>
     <section class="gameBoard">
-    <div id="timer">00:00</div>
+        <div class="hud">
+            <div>
+                <p>Level</p>
+                <div id="levelHud" class="bold-text">Medium</div>
+            </div>
+            <div>
+                <p>Time</p>
+                <div id="timer" class="bold-text">00:00</div>
+            </div>
+        </div>
     <!--enable this button to test things-->
-    <button class="testStartBtn">New Game</button>
+    <!--<button class="testStartBtn">New Game</button>-->
     <div class="table">
         <div class="row">
             <div class="square editModeOff border-left border-top ">
@@ -344,7 +353,7 @@
                 </span>
                 <p>Difficulty</p>
             </div>
-            <p>Easy </p>
+            <p id="level"></p>
         </div>
         <div class="entity e-border-bottom">
             <div>
@@ -353,7 +362,7 @@
                 </span>
                 <p>Time</p>
             </div>
-            <p>05.42 </p>
+            <p id="time">05.42 </p>
         </div>
         <div class="entity">
             <div>
@@ -362,7 +371,7 @@
                 </span>
                 <p>Score</p>
             </div>
-            <p>8090</p>
+            <p>Under progress</p>
         </div>
     </div>
     <button>New Game</button>
