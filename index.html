@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="Timer.js"></script>
+    <script src="SudokuGenerator.js"></script>
+    <script src="Game.js"></script>
+    <script src="Main.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+<body>
+    <section class="mainBoard">
+            <h1 class="big-title">Sudoku</h1>
+            <img src="assets/sudoku.png">
+        <button class="startBtn">New Game</button>
+    </section>
+    <section class="levelBoard">
+        <div class="level-wr">
+            <p id="37">Easy</p>
+            <p id="40">Medium</p>
+            <p id="45">Hard</p>
+            <p di="52">Expert</p>
+            <p id="58">Evil</p>
+        </div>
+    </section>
+    <section class="gameBoard">
+    <div id="timer">00:00</div>
+    <!--enable this button to test things-->
+    <button class="testStartBtn">New Game</button>
+    <div class="table">
+        <div class="row">
+            <div class="square editModeOff border-left border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top ">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-top border-right ">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-bottom border-left editMode">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left-light">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-bottom border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right border-bottom">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left">
+                <p></p>
+            </div>
+            <div class="square editModeOff">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-left border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-bottom">
+                <p></p>
+            </div>
+            <div class="square editModeOff border-right border-bottom">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="editDiv">
+        <div class="edit-off editBtn">
+            <p>OFF</p>
+            <span class="material-symbols-outlined">edit_square</span>
+        </div>
+    </div>
+
+    <div class="numDiv">
+        <div class="number">
+            <p>1</p>
+        </div>
+        <div class="number">
+            <p>2</p>
+        </div>
+        <div class="number">
+            <p>3</p>
+        </div>
+        <div class="number">
+            <p>4</p>
+        </div>
+        <div class="number">
+            <p>5</p>
+        </div>
+        <div class="number">
+            <p>6</p>
+        </div>
+        <div class="number">
+            <p>7</p>
+        </div>
+        <div class="number">
+            <p>8</p>
+        </div>
+        <div class="number">
+            <p>9</p>
+        </div>
+    </div>
+   
+</section>
+
+<section class="resultBoard">
+    <h1>Level Completed!</h1>
+    <img src="assets/trophy.png" class="pulse">
+    <div class="board">
+        <div class="entity e-border-bottom">
+            <div>
+                <span class="material-symbols-outlined">
+                    signal_cellular_alt
+                </span>
+                <p>Difficulty</p>
+            </div>
+            <p>Easy </p>
+        </div>
+        <div class="entity e-border-bottom">
+            <div>
+                <span class="material-symbols-outlined">
+                    schedule
+                </span>
+                <p>Time</p>
+            </div>
+            <p>05.42 </p>
+        </div>
+        <div class="entity">
+            <div>
+                <span class="material-symbols-outlined">
+                    star
+                </span>
+                <p>Score</p>
+            </div>
+            <p>8090</p>
+        </div>
+    </div>
+    <button>New Game</button>
+</section>
+
+    <!--<script src="index.js"></script>!-->
+    
+</body>
+</html>

@@ -1,0 +1,273 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins&display=swap');
+
+
+body{
+    /*background-color: #69a1ff;*/
+    background: rgb(188,213,255);
+    background: radial-gradient(circle, rgba(188,213,255,1) 0%, rgba(45,124,255,1) 100%);
+    font-family: 'Poppins', sans-serif;
+}
+    /*#bcd5ff*/
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+/* ---- SECTION MAIN --- */
+
+.big-title{
+    font-size: 3rem;
+    /*color: rgba(45,124,255,1);*/
+    color: white;
+}
+
+.mainBoard {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( rgba(188,213,255,1), rgba(45,124,255,1) );
+*/
+}
+
+.mainBoard img{
+    width: 50%; 
+}
+
+.mainBoard button{
+    margin-top: 5rem;
+}
+
+/*.clip-path{
+    /*clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 49%, 81% 77%, 22% 77%, 0 48%, 0% 20%);*/
+    /*clip-path: polygon(50% 40%, 0 0, 100% 0);*/
+    /*background-color: rgba(45,124,255,1);*/
+    /*background-color: rgba(255, 255, 255, 0.459);
+    border-bottom-left-radius:80px;
+    border-bottom-right-radius: 80px;
+    height: 20%;
+    text-align: center;
+}*/
+.startBtn{
+    
+}
+
+/* --- SECTION LEVELBOARD --- */ 
+.levelBoard{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    visibility: hidden;
+}
+.level-wr{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.level-wr p{
+    border-bottom: 1px solid gray;
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* --- SECTION GAMEBOARD --- */ 
+
+button{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    color: rgba(45,124,255,1);
+    font-weight:bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gameBoard{
+    visibility: hidden;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;
+    height: 100%;*/
+    background-color: white;
+    margin-bottom: 1rem;
+}
+
+.row{
+    display: flex;
+    /*height: 100%;*/
+    width: 360px;
+}
+
+.square{
+    /*width: 100%;*/
+    width: calc(360px/9);
+    height: calc(360px/9);
+    /*height: 100%;*/
+    border-bottom: 1px solid lightblue;
+    border-left: 1px solid lightblue;
+
+}
+
+.editModeOn{
+    /*font-family: 'Courier New', Courier, monospace;*/
+    font-family: 'Poppins', sans-serif;
+    font-size: smaller;
+    word-wrap:break-word;
+    overflow-wrap: break-word;
+    max-width: 39px;
+    line-height: 17px;
+}
+
+.editModeOff{
+    display: flex;
+    /*font-family: 'Dela Gothic One', cursive;*/
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.square p{
+    margin: 0;
+
+}
+
+.border-left{
+    border-left: 2px solid black;
+}
+
+.border-bottom{
+    border-bottom: 2px solid black;
+}
+
+.border-top{
+    border-top: 2px solid black;
+}
+
+.editDiv{
+    display: flex;
+    padding-left: 3px;
+}
+
+.editBtn{
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.edit-off{
+    color: gray;
+    background-color: lightgray;
+}
+
+.edit-on{
+    color: rgba(45,124,255,1);
+    background-color: white;
+}
+
+.editDiv p{
+    margin: 0;
+    font-weight: bold;
+}
+
+.border-right{
+    border-right: 2px solid black;
+}
+
+.numDiv{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.numDiv p{
+    margin: 0;
+}
+
+.number{
+    width: 80%;
+    text-align: center;
+    /*font-family: 'Dela Gothic One', cursive;*/
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: white;
+    margin: 0.2rem;
+    padding: 10px;
+}
+
+/* ---- SECTION RESULTBOARD ---- */ 
+
+.resultBoard{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.resultBoard img{
+    width: 70%;
+}
+
+.board{
+    background-color: rgba(255, 255, 255, 0.192);
+    width: 300px;
+    border-radius: 8px;
+    margin-bottom: 4rem;
+}
+
+.entity{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 2rem;
+}
+
+.entity div{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.e-border-bottom{
+    border-bottom: 1px solid rgb(139, 139, 139);
+}
+
+.pulse {
+    animation: pulse 1s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+    from { transform: scale(0.8); }
+    to { transform: scale(0.9); }
+  }
+
