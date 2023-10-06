@@ -31,7 +31,7 @@ function Main(){
         _this.mainBoard.style.visibility="hidden";
         _this.gameBoard.style.visibility="visible";
         _this.levelBoard.style.visibility="hidden";
-        /*document.getElementsByTagName('body')[0].style.backgroundColor="white";*/
+        document.getElementsByTagName('body')[0].style.backgroundColor="white";*/
 
         let game = new Game();
         game.generateSudokuBoard(this.id);
