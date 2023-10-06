@@ -92,7 +92,13 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
     flex-direction: column;
     width: 300px;
     border-radius: 8px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
 }
+
+.show {
+    transform: translateY(0);
+  }
 
 .level-wr p{
     border-bottom: 1px solid gray;
@@ -106,10 +112,10 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
 .hud{
     display: flex;
     justify-content: space-between;
+    color: black;
 }
 
 .hud div{
-    color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

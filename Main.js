@@ -18,11 +18,12 @@ function Main(){
     }
 
     this.pickLevel = function(){
+        //_this.levelBoard.classList.add('show');
         _this.levelBoard.style.visibility="visible";
+        document.getElementsByClassName('level-wr')[0].classList.add('show');
         let levelElems = document.getElementsByClassName('level-wr')[0].getElementsByTagName('p');
-        console.log(levelElems)
+       
         for(let i=0; i < levelElems.length; i++){
-            console.log(levelElems[i])
             levelElems[i].addEventListener('click', _this.startNewGame);
         }
     }
@@ -32,6 +33,7 @@ function Main(){
         _this.gameBoard.style.visibility="visible";
         _this.levelBoard.style.visibility="hidden";
         document.getElementsByTagName('body')[0].style.backgroundColor="white";
+        document.getElementsByTagName('body')[0].style.background="white";
 
         let game = new Game();
         game.generateSudokuBoard(this);
