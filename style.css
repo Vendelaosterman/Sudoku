@@ -54,6 +54,12 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
 */
 }
 
+.mainBoard span{
+    color: black;
+    font-weight: bold;
+    rotate: 90deg;
+}
+
 .mainBoard img{
     width: 50%; 
 }
@@ -85,6 +91,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
     justify-content: center;
     align-items: flex-end;
     visibility: hidden;
+    z-index: 2;
 }
 .level-wr{
     background-color: white;
@@ -101,7 +108,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
   }
 
 .level-wr p{
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--light-gray-color);
     text-align: center;
     margin: 0;
     padding: 1rem;
@@ -173,6 +180,7 @@ button{
     overflow-wrap: break-word;
     max-width: 39px;
     line-height: 17px;
+    color: gray;
 }
 
 .editModeOff{
@@ -203,24 +211,33 @@ button{
 .editDiv{
     display: flex;
     padding-left: 3px;
+    justify-content: space-between;
+}
+
+.editDiv div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .editBtn{
-    display: flex;
-    gap: 0.5rem;
     padding: 0.5rem 0.5rem;
     border-radius: 5px;
     background-color: white;
 }
 
+.undoBtn{
+    border-radius: 5px;
+    color: gray;
+}
+
 .edit-off{
     color: gray;
-    background-color: lightgray;
 }
 
 .edit-on{
     color: rgba(45,124,255,1);
-    background-color: white;
 }
 
 .editDiv p{

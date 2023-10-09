@@ -6,11 +6,25 @@ function Timer(){
     this.intervalId; // Variable to store the interval ID
     this.gameDuration;
     this.timerElement = document.getElementById('timer');
+    this.score = 0;
+    this.baseScore = 20;
     _this = this;
 
 // Function to update the timer display
 this.updateTimerDisplay = function() {
     this.timerElement.textContent = `${this.minutes.toString().padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
+}
+
+this.updateScore = function(point){
+    this.score += this.baseScore * point;
+    console.log(this.score);
+
+
+    if(this.score < 0){
+        this.score = 0;
+    }
+
+    return this.score;
 }
 
 // Function to start the timer
@@ -20,6 +34,9 @@ this.startTimer = function() {
         if (_this.seconds === 60) {
             _this.seconds = 0;
             _this.minutes++;
+            if(_this.baseScore != 1){
+                _this.baseScore--;
+            }
         }
         _this.updateTimerDisplay();
     }, 1000); // Update every 1 second (1000 milliseconds)
