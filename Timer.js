@@ -17,8 +17,6 @@ this.updateTimerDisplay = function() {
 
 this.updateScore = function(point){
     this.score += this.baseScore * point;
-    console.log(this.score);
-
 
     if(this.score < 0){
         this.score = 0;

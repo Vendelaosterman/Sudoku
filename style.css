@@ -162,7 +162,7 @@ button{
     width: 360px;
 }
 
-.square{
+.box{
     /*width: 100%;*/
     width: calc(360px/9);
     height: calc(360px/9);
@@ -191,7 +191,7 @@ button{
     align-items: center;
 }
 
-.square p{
+.box p{
     margin: 0;
 
 }

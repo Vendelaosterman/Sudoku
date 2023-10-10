@@ -13,7 +13,8 @@ function Game(){
     this.selectedBox = {
         elem: "",
         rowIndex: "",
-        colIndex: ""
+        colIndex: "", 
+        square: ""
     } 
 
     this.rowElems = document.getElementsByClassName('row');
@@ -38,7 +39,7 @@ function Game(){
         for (let i = 0; i < this.unSolvedBoard.length; i++) {
             for (let y = 0; y < this.unSolvedBoard[i].length; y++) {
     
-                let row = this.rowElems[i].getElementsByClassName('square');
+                let row = this.rowElems[i].getElementsByClassName('box');
                 if (this.unSolvedBoard[i][y] == 0) {
                     row[y].firstElementChild.innerHTML = "";
                     row[y].addEventListener('click', this.handleSelectedBox);
@@ -107,7 +108,7 @@ function Game(){
     }
 
     this.handleSelectedBox = function(){
-        let boxes = document.getElementsByClassName('square');
+        let boxes = document.getElementsByClassName('box');
 
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].style.backgroundColor = "transparent";
@@ -116,7 +117,8 @@ function Game(){
         _this.selectedBox.elem = this;
         _this.selectedBox.rowIndex = this.getAttribute('rowIndex');
         _this.selectedBox.colIndex = this.getAttribute('colIndex');
-        _this.selectedBox.elem.style.backgroundColor = "rgba(188,213,255,1)";
+        _this.selectedBox.square = this.getAttribute('square');
+        _this.selectedBox.elem.style.backgroundColor = "rgba(188,213,255,1)";        
     }
 
     this.checkIfCorrectNumber = function () {
@@ -135,6 +137,7 @@ function Game(){
                 // if correct, remove the number from array
                 if (this.missedNumbers[i].val == this.selectedNumber.firstElementChild.innerHTML) {
                     this.updateScore();
+                    this.checkRows();
                     this.missedNumbers.splice(i, 1);
                     // Remove eventlistener on box 
                     this.selectedBox.elem.removeEventListener('click', this.handleSelectedBox);
@@ -209,6 +212,37 @@ function Game(){
         }
 
         this.selectedBox.elem.firstElementChild.innerHTML = sortedString;
+    }
+
+    this.checkRows = function(){
+        let boxes = document.getElementsByClassName('box');
+        let boxesInSameLane = [];
+        
+        // get all boxes in same row, col & square
+        for(let i=0; i < boxes.length; i++){
+            if(boxes[i].getAttribute('rowIndex') == _this.selectedBox.rowIndex){
+                boxesInSameLane.push(boxes[i]);
+            }
+            if(boxes[i].getAttribute('colIndex') == _this.selectedBox.colIndex){
+                boxesInSameLane.push(boxes[i]);
+            }
+            if(boxes[i].getAttribute('square') == _this.selectedBox.square){
+                boxesInSameLane.push(boxes[i]);
+            }
+        }
+        
+        // remove all occurrences of the number from the notes 
+        for(let i=0; i<boxesInSameLane.length; i++){
+            if(boxesInSameLane[i].classList.contains('editModeOn') && boxesInSameLane[i].firstElementChild.innerHTML.includes(this.selectedNumber.firstElementChild.innerHTML)){
+                let newNotes = boxesInSameLane[i].firstElementChild.innerHTML.replace(new RegExp(this.selectedNumber.firstElementChild.innerHTML, 'g'), '');
+                boxesInSameLane[i].firstElementChild.innerHTML = newNotes;
+                if(newNotes.length == 0){
+                    boxesInSameLane[i].classList.remove('editModeOn');
+                    boxesInSameLane[i].classList.add('editModeOff');
+                }
+            }
+        }
+     
     }
 
     this.updateScore = function(){
